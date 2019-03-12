@@ -1,0 +1,19 @@
+
+databases:
+  test_mysql:
+    type: mysql
+    host: localhost
+    database: test
+    username: test
+    password: testpw
+    max_connections: 3
+    max_idle_connections: 2
+
+  test_oracle:
+    type: oracle
+    host: 127.0.0.1
+    port: 1543
+    username: test
+    password: test
+    service_name: TEST
+
