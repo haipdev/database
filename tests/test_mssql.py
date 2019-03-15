@@ -10,6 +10,7 @@ def setup():
     config.load(basedir + os.sep + 'etc', 'dev')
     config.set(template_dir=basedir+os.sep+'templates')
 
+@pytest.mark.skip(reason="you need a running db server for this test")
 @pytest.mark.asyncio
 async def test_mssql(setup):
     db_name = 'test_mssql'

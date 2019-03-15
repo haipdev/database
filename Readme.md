@@ -85,14 +85,20 @@ The database is identified by the section-name (e.g. 'mysql_test_db').
 
 * **database**: name of the database on the database-server
 
+Prerequisite: python module "mysql_connector"
+
 ##### Oracle options
 
 * **service_name**: service-name (higher priority then SID)
 * **sid**: sid
 
+Prerequisite: python module "cx_Oracle"
+
 ##### MSSQL options
 
 * **driver**: driver definition string e.g. ""{SQL Server}"
+
+Prerequisite: python module "pyodbc"
 
 ##### Example
 
@@ -189,6 +195,7 @@ changes = await database.do('testdb', 'queries/update.sql', lastname='Hainz')
 print(f'effected rows: {changes}')
 await database.shutdown()
 ```
+
 #### Procedures
 
 > async def call(db_name, procedure)
@@ -200,7 +207,7 @@ await database.shutdown()
 
 > async def shutdown()
 
-Close all open connections in the connection pool. 
+Close all open connections in the connection pool normally used before closing your application. If you do not close the open connections in the connection pool you will see some warnings on your db servers. So calling this function is not realy necessary but beautifies your code.
 
 ## Running the tests
 

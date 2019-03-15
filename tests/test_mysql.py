@@ -26,11 +26,13 @@ def teardown(request):
         loop.run_until_complete(async_shutdown())    
     request.addfinalizer(shutdown)
 
+@pytest.mark.skip(reason="you need a running db server for this test")
 @pytest.mark.asyncio
 async def test_simple(setup):
     rows = await database.query('test_mysql', 'queries/test_mysql_select.sql')
     assert rows
 
+@pytest.mark.skip(reason="you need a running db server for this test")
 @pytest.mark.asyncio
 async def test_sequence(setup):
     db_name = 'test_mysql'
@@ -56,6 +58,7 @@ async def test_sequence(setup):
     rows = await database.query(db_name, 'queries/test_mysql_function.sql')
     assert rows[0][0] == 'Tester'
 
+@pytest.mark.skip(reason="you need a running db server for this test")
 @pytest.mark.asyncio
 async def test_mysql_proc(setup):
     db_name = 'test_mysql'
