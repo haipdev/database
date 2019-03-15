@@ -20,8 +20,9 @@ databases:
   test_mssql:
     type: mssql
     driver: "{SQL Server}"
-    server: "localhost,1111"
     database: Test
-    uid: test
-    pwd: xxx
+    host: localhost
+    port: 1433
+    username: test
+    password: xxx
 
