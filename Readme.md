@@ -189,19 +189,18 @@ changes = await database.do('testdb', 'queries/update.sql', lastname='Hainz')
 print(f'effected rows: {changes}')
 await database.shutdown()
 ```
-
-#### Pool shutdown
-
-> async def shutdown()
-
-Close all open connections in the connection pool. 
-
 #### Procedures
 
 > async def call(db_name, procedure)
 
 * *db_name*: as above
 * *procedure*: the name of the procedure to be called
+
+#### Pool shutdown
+
+> async def shutdown()
+
+Close all open connections in the connection pool. 
 
 ## Running the tests
 
