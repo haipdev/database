@@ -225,5 +225,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Dependencies
 
-* [haip_config](https://github.com/haipdev/config)
-* [haip_template](https://github.com/haipdev/template)
+* [haip-config](https://github.com/haipdev/config)
+* [haip-template](https://github.com/haipdev/template)

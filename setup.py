@@ -19,7 +19,8 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        haip-config
-        haip-template
+        "asgiref",
+        "haip-config",
+        "haip-template"
     ]
 )
