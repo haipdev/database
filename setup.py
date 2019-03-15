@@ -5,7 +5,7 @@ with open("Readme.md", "r") as fh:
 
 setuptools.setup(
     name="haip_database",
-    version="0.1.2",
+    version="0.1.3",
     author="Reinhard Hainz",
     author_email="reinhard.hainz@gmail.com",
     description="A generic database interface.",

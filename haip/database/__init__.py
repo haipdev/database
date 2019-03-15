@@ -2,7 +2,7 @@ import logging
 
 import haip.config as config
 import haip.template as template
-import haip.database.pool as pool
+from haip.database import pool
 
 logger = logging.getLogger(__name__)
 
