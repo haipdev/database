@@ -13,7 +13,7 @@ basedir = os.path.dirname(__file__)
 
 @pytest.fixture
 def setup():
-    config.load(basedir + os.sep + 'etc')
+    config.load(basedir + os.sep + 'etc', 'dev')
     config.set(template_dir=basedir+os.sep+'templates')
 
 @pytest.fixture(scope="module", autouse=True)

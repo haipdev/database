@@ -12,9 +12,9 @@ haip.database is a minimalistic async database interface for Python 3
 * **minimalistic**: *query* and *do*
 * **db by name**: reference your database (sessions) per config-name
 * **sql templates**: SQL seperated from code. placeholders are escaped automatically.
-* **db pools**: db connection caching
+* **db pools**: db connection pooling
 * **dict short notation**: row.fieldname == row['fieldname']
-* **db supported**: mysql, oracle, (ongoing)
+* **db supported**: mysql, oracle, mssql, (ongoing)
 
 ## Getting Started
 
@@ -57,6 +57,15 @@ databases:
         username: username
         password: password
         service_name: service_name
+
+    mssql_test_db:
+        type: mssql
+        driver: driver
+        host: host
+        port: port
+        database: TEST
+        username: username
+        password: password
 ```
 
 The database is identified by the section-name (e.g. 'mysql_test_db').
@@ -69,7 +78,6 @@ The database is identified by the section-name (e.g. 'mysql_test_db').
 * **username**: username for login
 * **password**: password for login
 * **autocommit**: true | false - default=true
-* **keep-alive**: true | false - default=true (if false the connection to the database will be closed after each query)
 * **max_connections**: max number of open connections for this database (otherwise you will get DatabasePoolExhaustedExcpetions)
 * **max_idle_connections**: max number of open idle connections
 
@@ -81,6 +89,10 @@ The database is identified by the section-name (e.g. 'mysql_test_db').
 
 * **service_name**: service-name (higher priority then SID)
 * **sid**: sid
+
+##### MSSQL options
+
+* **driver**: driver definition string e.g. ""{SQL Server}"
 
 ##### Example
 

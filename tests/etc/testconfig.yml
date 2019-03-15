@@ -5,15 +5,23 @@ databases:
     host: localhost
     database: test
     username: test
-    password: testpw
+    password: xxx
     max_connections: 3
     max_idle_connections: 2
 
   test_oracle:
     type: oracle
     host: 127.0.0.1
-    port: 1543
+    port: 1521
     username: test
-    password: test
+    password: xxx
     service_name: TEST
+
+  test_mssql:
+    type: mssql
+    driver: "{SQL Server}"
+    server: "localhost,1111"
+    database: Test
+    uid: test
+    pwd: xxx
 

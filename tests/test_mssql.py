@@ -11,9 +11,9 @@ def setup():
     config.set(template_dir=basedir+os.sep+'templates')
 
 @pytest.mark.asyncio
-async def test_oracle(setup):
-    db_name = 'test_oracle'
-    rows = await database.query(db_name, 'queries/test_oracle_select.sql')
-    assert rows
+async def test_mssql(setup):
+    db_name = 'test_mssql'
+    row = await database.query_first(db_name, 'queries/test_mssql_select.sql')
+    assert 'SQL Server' in row.version 
 
 

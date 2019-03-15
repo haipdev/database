@@ -3,6 +3,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 import abc
+from asgiref.sync import sync_to_async
 import haip.config as config
 
 class DatabaseException(Exception):
@@ -26,7 +27,8 @@ class DbDriver(abc.ABC):
     async def connect(self):
         pass
 
-    async def disconnect(self):
+    @sync_to_async
+    def disconnect(self):
         if self.conn:
             self.conn.close()
             self.conn = None
@@ -38,7 +40,8 @@ class DbDriver(abc.ABC):
     async def do(self, query, *values):
         return await self._run_cursor(query, *values, is_query=False)    
 
-    async def _run_cursor(self, query, *values, is_query=True, assoc=False):
+    @sync_to_async
+    def _run_cursor(self, query, *values, is_query=True, assoc=False):
         cursor = None
         try:
             cursor = self.conn.cursor()
@@ -57,7 +60,8 @@ class DbDriver(abc.ABC):
                 cursor.close()
             raise DatabaseException(str(error))
 
-    async def call(self, procedure):
+    @sync_to_async
+    def call(self, procedure):
         cursor = None
         try:
             cursor = self.conn.cursor()
