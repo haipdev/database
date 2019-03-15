@@ -149,6 +149,8 @@ rows = await database.query('testdb', 'queries/firstname.sql', firstname='Reinha
 for row in rows:
     firstname = row[0]
     lastname = row[1]
+
+await database.shutdown()
 ```
 
 ##### shortcuts
@@ -185,7 +187,14 @@ config.load('/path-to-my-config-dir', 'dev')
 changes = await database.do('testdb', 'queries/update.sql', lastname='Hainz')
 
 print(f'effected rows: {changes}')
+await database.shutdown()
 ```
+
+#### Pool shutdown
+
+> async def shutdown()
+
+Close all open connections in the connection pool. 
 
 #### Procedures
 

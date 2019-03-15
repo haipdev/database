@@ -41,4 +41,6 @@ async def call(db_name, procedure):
     await pool.release(dbi)
     return result
 
+async def shutdown():
+    await pool.shutdown()
 
