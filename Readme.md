@@ -5,8 +5,6 @@
 
 haip.database is a minimalistic async database interface for Python 3
 
-** ALPHA version **
-
 ## Features
 
 * **minimalistic**: *query* and *do*
@@ -20,13 +18,9 @@ haip.database is a minimalistic async database interface for Python 3
 
 ### Installing
 
-upcoming:
-
 ```sh
 pip install haip-database
 ```
-
-currently only installation from source is possible
 
 or from source:
 
